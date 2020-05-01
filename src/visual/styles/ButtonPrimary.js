@@ -9,6 +9,8 @@ export const ButtonPrimary = styled.button`
   padding: 0 30px;
   font-weight: bold;
   font-size: 14px;
+  border: none;
+  border-radius: 5px;
 
   &:disabled {
     opacity: .5;
