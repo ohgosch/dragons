@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const clearProfile = () => {
-    setAuthInStorage();
+    setAuthInStorage({});
     setAuthenticated(false);
     setProfile({});
   };

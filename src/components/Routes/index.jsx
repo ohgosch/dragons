@@ -5,6 +5,7 @@ import { Dragons } from 'pages/Dragons';
 import { Auth } from 'pages/Auth';
 import { AuthContext } from 'contexts/AuthContext';
 import { ROUTES } from 'logic/constants';
+import { Logout } from 'pages/Logout';
 
 export const Routes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -24,18 +25,23 @@ export const Routes = () => {
   }, [authenticated, pathname]);
 
   return (
-    <Switch>
+    <>
       {/* Auth Redirects */}
       {redirectToAuth && <Redirect to={ROUTES.AUTH} />}
       {redirectToMain && <Redirect to={ROUTES.MAIN} />}
 
-      <Route path={ROUTES.AUTH}>
-        <Auth />
-      </Route>
-      <Route path={ROUTES.MAIN}>
-        <Dragons />
-      </Route>
-    </Switch>
+      <Switch>
+        <Route path={ROUTES.AUTH} exact>
+          <Auth />
+        </Route>
+        <Route path={ROUTES.LOGOUT}>
+          <Logout />
+        </Route>
+        <Route path={ROUTES.MAIN}>
+          <Dragons />
+        </Route>
+      </Switch>
+    </>
   );
 };
 
