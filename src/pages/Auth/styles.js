@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from 'visual/constants';
 import { Wrapper } from 'visual/styles/Wrapper';
 
-export const Container = styled.div`
-  padding-top: 50px;
-`;
+export const Container = styled.div``;
 
 export const Content = styled(Wrapper)`
   max-width: 300px !important;

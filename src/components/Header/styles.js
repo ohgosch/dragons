@@ -7,6 +7,7 @@ export const Container = styled.header`
   background-color: ${COLORS.black};
   height: 70px;
   box-shadow: 0px 4px 10px ${COLORS.greyDarkAlpha};
+  margin-bottom: 50px;
 `;
 
 export const Content = styled.div`

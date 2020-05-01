@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Container, Label, Input, TextArea } from './styles';
 
-export const ButtonWithLabel = ({
+export const InputWithLabel = ({
   id,
   label,
   onChange,
@@ -38,7 +38,7 @@ export const ButtonWithLabel = ({
   </Container>
 );
 
-ButtonWithLabel.propTypes = {
+InputWithLabel.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   onChange: PropTypes.func,
@@ -49,7 +49,7 @@ ButtonWithLabel.propTypes = {
   isTextArea: PropTypes.bool,
 };
 
-ButtonWithLabel.defaultProps = {
+InputWithLabel.defaultProps = {
   label: '',
   onChange: () => {},
   value: '',
@@ -59,4 +59,4 @@ ButtonWithLabel.defaultProps = {
   isTextArea: false,
 };
 
-export default ButtonWithLabel;
+export default InputWithLabel;

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 
-import { ButtonWithLabel } from 'components/ButtonWithLabel';
+import { InputWithLabel } from 'components/InputWithLabel';
 import { ButtonPrimary } from 'visual/styles/ButtonPrimary';
 import { AuthContext } from 'contexts/AuthContext';
 import { Container, Content, Form, Title } from './styles';
@@ -24,7 +24,7 @@ export const Auth = () => {
       <Content>
         <Title>Login</Title>
         <Form onSubmit={submit}>
-          <ButtonWithLabel
+          <InputWithLabel
             id="user-name"
             label="Name"
             placeholder="Ex.: Richard"
@@ -32,7 +32,7 @@ export const Auth = () => {
             onChange={({ target }) => setName(target.value)}
             required
           />
-          <ButtonWithLabel
+          <InputWithLabel
             id="user-e-mail"
             label="E-mail"
             type="email"
@@ -41,7 +41,7 @@ export const Auth = () => {
             onChange={({ target }) => setEmail(target.value)}
             required
           />
-          <ButtonWithLabel
+          <InputWithLabel
             id="user-password"
             label="Password"
             type="password"
