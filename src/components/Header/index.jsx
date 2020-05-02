@@ -39,7 +39,7 @@ export const Header = () => {
       <Wrapper>
         <Content>
           <RenderLogo isAuthRoute={isAuthRoute} />
-          {!isAuthRoute && (
+          {!isAuthRoute && !!name && (
             <User to={ROUTES.LOGOUT} title={TEXTS.header.logout}>
               {name[0]}
             </User>
