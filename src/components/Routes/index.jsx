@@ -6,6 +6,8 @@ import { Auth } from 'pages/Auth';
 import { AuthContext } from 'contexts/AuthContext';
 import { ROUTES } from 'logic/constants';
 import { Logout } from 'pages/Logout';
+import { DragonDetail } from 'pages/DragonDetail';
+import { DragonCreateEdit } from 'pages/DragonCreateEdit';
 
 export const Routes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -34,11 +36,20 @@ export const Routes = () => {
         <Route path={ROUTES.AUTH} exact>
           <Auth />
         </Route>
-        <Route path={ROUTES.LOGOUT}>
+        <Route path={ROUTES.LOGOUT} exact>
           <Logout />
         </Route>
-        <Route path={ROUTES.MAIN}>
+        <Route path={ROUTES.MAIN} exact>
           <Dragons />
+        </Route>
+        <Route path={ROUTES.DRAGON_CREATE}>
+          <DragonCreateEdit />
+        </Route>
+        <Route path={ROUTES.DRAGON_EDIT}>
+          <DragonCreateEdit />
+        </Route>
+        <Route path={ROUTES.DRAGON_DETAIL}>
+          <DragonDetail />
         </Route>
       </Switch>
     </>

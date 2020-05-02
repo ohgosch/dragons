@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { format } from 'logic/date';
+import { ROUTES } from 'logic/constants';
 import { Container, Column } from './styles';
 
 export const TableRow = ({ name, type, createdAt, id }) => (
-  <Container to={`/dragon/${id}`}>
+  <Container to={ROUTES.DRAGON_DETAIL.replace(':id', id)} as={Link}>
     <Column size="20%" title="Name">
       {name}
     </Column>

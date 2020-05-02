@@ -12,6 +12,7 @@ export const InputWithLabel = ({
   type,
   required,
   isTextArea,
+  disabled,
 }) => (
   <Container>
     {!!label && <Label htmlFor={id}>{label}</Label>}
@@ -23,6 +24,7 @@ export const InputWithLabel = ({
         placeholder={placeholder}
         type={type}
         required={required}
+        disabled={disabled}
       />
     )}
     {isTextArea && (
@@ -31,8 +33,9 @@ export const InputWithLabel = ({
         onChange={onChange}
         value={value}
         placeholder={placeholder}
-        type={type}
         required={required}
+        as="textarea"
+        disabled={disabled}
       />
     )}
   </Container>
@@ -47,6 +50,7 @@ InputWithLabel.propTypes = {
   type: PropTypes.string,
   required: PropTypes.bool,
   isTextArea: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 InputWithLabel.defaultProps = {
@@ -57,6 +61,7 @@ InputWithLabel.defaultProps = {
   type: 'text',
   required: false,
   isTextArea: false,
+  disabled: false,
 };
 
 export default InputWithLabel;

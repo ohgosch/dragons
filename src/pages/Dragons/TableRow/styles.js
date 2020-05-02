@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import { COLORS } from 'visual/constants';
 import { tabletDesktop, mobile } from 'visual/medias';
+import { Box } from 'visual/styles/Box';
 
-export const Container = styled(Link)`
+export const Container = styled(Box)`
   ${tabletDesktop(css`
     display: flex;
     align-items: center;
@@ -14,12 +14,8 @@ export const Container = styled(Link)`
   
   ${mobile(css`
     display: grid;
-    padding: 20px;
   `)}
-  
-  background-color: ${COLORS.white};
-  box-shadow: 0px 0px 8px ${COLORS.greyDarkAlpha};
-  border-radius: 5px;
+
   margin-top: 10px;
   text-decoration: none;
 `;
