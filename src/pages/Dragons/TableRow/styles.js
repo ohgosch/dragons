@@ -4,6 +4,9 @@ import { COLORS } from 'visual/constants';
 import { tabletDesktop, mobile } from 'visual/medias';
 import { Box } from 'visual/styles/Box';
 
+import optionsImage from 'assets/img/options-icon.svg';
+import { Link } from 'react-router-dom';
+
 export const Container = styled(Box)`
   ${tabletDesktop(css`
     display: flex;
@@ -17,7 +20,7 @@ export const Container = styled(Box)`
   `)}
 
   margin-top: 10px;
-  text-decoration: none;
+  position: relative;
 `;
 
 export const Column = styled.span`
@@ -25,7 +28,11 @@ export const Column = styled.span`
   font-weight: normal;
   font-size: 14px;
   line-height: 19px;
-  color: ${COLORS.black};
+
+  &, > a {
+    text-decoration: none;
+    color: ${COLORS.black};
+  }
   ${tabletDesktop(css`
     flex-basis: ${p => p.size};
   `)}
@@ -42,4 +49,43 @@ export const Column = styled.span`
       color: ${COLORS.blackMedium}
     }
   `)}
+`;
+
+export const OptionsButton = styled.button`
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  background-image: url(${optionsImage});
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  right: 20px;
+  position: absolute;
+  top: 0;
+`;
+
+export const OptionsList = styled(Box)`
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  display: grid;
+  z-index: 10;
+  min-width: 100px;
+`;
+
+export const OptionItem = styled(Link)`
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: ${COLORS.black};
+  padding: 7px 10px;
+  display: block;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid ${COLORS.greyWhite};
+  }
 `;

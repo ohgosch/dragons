@@ -10,6 +10,7 @@ import { TableRow } from './TableRow';
 
 export const Dragons = () => {
   const [dragons, setDragons] = useState([]);
+  const [showingOptions, setShowingOptions] = useState();
 
   const fetch = async () => {
     const { data } = await getDragonList();
@@ -19,6 +20,12 @@ export const Dragons = () => {
   useEffect(() => {
     fetch();
   }, []);
+
+  const toggleOptions = (value) => {
+    if (value === showingOptions) return setShowingOptions();
+    return setShowingOptions(value);
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -38,6 +45,8 @@ export const Dragons = () => {
               name={name}
               type={type}
               createdAt={createdAt}
+              showOptions={showingOptions === id}
+              toggleOptions={toggleOptions}
             />
           ))}
         </Table>
