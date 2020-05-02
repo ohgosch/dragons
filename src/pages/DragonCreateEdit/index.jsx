@@ -60,7 +60,7 @@ export const DragonCreateEdit = () => {
 
   useEffect(() => {
     if (id) recovery();
-  }, []);
+  }, [id]);
 
   return (
     <Container>
@@ -75,6 +75,7 @@ export const DragonCreateEdit = () => {
               value={name}
               disabled={loading}
               onChange={({ target }) => setName(target.value)}
+              required
             />
             <InputWithLabel
               id="dragon-type"
@@ -83,6 +84,7 @@ export const DragonCreateEdit = () => {
               value={type}
               disabled={loading}
               onChange={({ target }) => setType(target.value)}
+              required
             />
           </InputsWrapper>
           <InputWithLabel

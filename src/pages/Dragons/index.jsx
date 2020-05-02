@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Wrapper } from 'visual/styles/Wrapper';
 import { InputWithLabel } from 'components/InputWithLabel';
 import { getDragonList } from 'logic/requests/dragon';
+import { sort } from 'logic/sort';
 import { Container, FilterWrapper, Table } from './styles';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
@@ -30,7 +31,7 @@ export const Dragons = () => {
         </FilterWrapper>
         <Table>
           <TableHeader />
-          {dragons.map(({ id, name, type, createdAt }) => (
+          {sort(dragons).map(({ id, name, type, createdAt }) => (
             <TableRow
               key={id}
               id={id}
