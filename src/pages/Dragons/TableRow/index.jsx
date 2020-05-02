@@ -30,20 +30,16 @@ export const TableRow = ({
     <Column size="15%" title="Created at">
       {format(createdAt)}
     </Column>
-    <Column>
-      <OptionsButton onClick={() => toggleOptions(id)}>Options</OptionsButton>
-      {showOptions && (
-        <OptionsList>
-          <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
-            Edit
-          </OptionItem>
-          <OptionItem>Delete</OptionItem>
-          <OptionItem to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>
-            Detail
-          </OptionItem>
-        </OptionsList>
-      )}
-    </Column>
+    <OptionsButton onClick={() => toggleOptions(id)}>Options</OptionsButton>
+    {showOptions && (
+      <OptionsList>
+        <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>Edit</OptionItem>
+        <OptionItem>Delete</OptionItem>
+        <OptionItem to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>
+          Detail
+        </OptionItem>
+      </OptionsList>
+    )}
   </Container>
 );
 
