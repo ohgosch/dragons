@@ -36,3 +36,10 @@ export const User = styled(Link)`
   text-decoration: none;
 
 `;
+
+export const Title = styled.h1`
+  font-size: 0;
+  position: absolute;
+  left: -999pc;
+  top: -999pc;
+`;

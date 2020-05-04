@@ -8,7 +8,7 @@ import { TEXTS } from 'logic/texts';
 import { AuthContext } from 'contexts/AuthContext';
 
 import logo from 'assets/img/logoWhite.svg';
-import { Container, Logo, User, Content } from './styles';
+import { Container, Logo, User, Content, Title } from './styles';
 
 const RenderLogo = ({ isAuthRoute }) =>
   isAuthRoute ? (
@@ -38,6 +38,7 @@ export const Header = () => {
     <Container>
       <Wrapper>
         <Content>
+          <Title>{TEXTS.header.title}</Title>
           <RenderLogo isAuthRoute={isAuthRoute} />
           {!isAuthRoute && !!name && (
             <User to={ROUTES.LOGOUT} title={TEXTS.header.logout}>
