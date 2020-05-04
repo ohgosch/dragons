@@ -5,6 +5,8 @@ import { getDragonDetail } from 'logic/requests/dragon';
 import { Wrapper } from 'visual/styles/Wrapper';
 import { format } from 'logic/date';
 
+import { ButtonFixed } from 'components/ButtonFixed';
+import { ROUTES } from 'logic/constants';
 import {
   Container,
   Content,
@@ -33,6 +35,9 @@ export const DragonDetail = () => {
   return (
     <Container>
       <Wrapper>
+        <ButtonFixed to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
+          Edit Dragon
+        </ButtonFixed>
         <Content>
           <Title>{name}</Title>
           <Type title="Type">{type}</Type>

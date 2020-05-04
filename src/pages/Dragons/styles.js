@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding-bottom: 50px;
+`;
 
 export const FilterWrapper = styled.div`
   max-width: 300px;
