@@ -6,6 +6,7 @@ import { Box } from 'visual/styles/Box';
 
 import optionsImage from 'assets/img/options-icon.svg';
 import { Link } from 'react-router-dom';
+import { toRem } from 'logic/toRem';
 
 export const Container = styled(Box)`
   ${tabletDesktop(css`
@@ -26,15 +27,16 @@ export const Container = styled(Box)`
 export const Column = styled.span`
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: ${toRem(14)};
+  line-height: ${toRem(19)};
+  overflow: hidden;
 
   &, > a {
     text-decoration: none;
     color: ${COLORS.black};
   }
   ${tabletDesktop(css`
-    flex-basis: ${p => p.size};
+    width: ${p => p.size};
   `)}
 
   ${mobile(css`
@@ -52,18 +54,19 @@ export const Column = styled.span`
 `;
 
 export const OptionsButton = styled.button`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   border: none;
   padding: 0;
+  background-color: ${COLORS.white};
   background-image: url(${optionsImage});
   font-size: 0;
   background-repeat: no-repeat;
   background-position: center;
-  right: 20px;
+  right: 5px;
   position: absolute;
-  top: 0;
+  top: 5px;
 `;
 
 export const OptionsList = styled(Box)`
@@ -78,14 +81,20 @@ export const OptionsList = styled(Box)`
 
 export const OptionItem = styled(Link)`
   font-weight: normal;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: ${toRem(12)};
+  line-height: ${toRem(16)};
+  background-color: ${COLORS.white};
   color: ${COLORS.black};
   padding: 7px 10px;
   display: block;
   text-decoration: none;
   text-align: left;
   border: none;
+  overflow: hidden;
+
+  &:hover {
+    background-color: ${COLORS.greyWhite};
+  }
 
   &:not(:last-child) {
     border-bottom: 1px solid ${COLORS.greyWhite};

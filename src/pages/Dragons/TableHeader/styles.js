@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { mobile } from 'visual/medias';
+import { toRem } from 'logic/toRem';
 
 export const Container = styled.div`
   padding: 0 20px;
@@ -15,8 +16,8 @@ export const Container = styled.div`
 export const Column = styled.span`
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: ${toRem(14)};
+  line-height: ${toRem(19)};
   color: ${COLORS.blackMedium};
 
   flex-basis: ${p => p.size};
