@@ -9,13 +9,11 @@ export const Auth = () => {
   const { setProfile } = useContext(AuthContext);
 
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submit = () => {
     setProfile({ name });
     setName('');
-    setEmail('');
     setPassword('');
   };
 
@@ -26,19 +24,10 @@ export const Auth = () => {
         <Form onSubmit={submit}>
           <InputWithLabel
             id="user-name"
-            label="Name"
+            label="Username"
             placeholder="Ex.: Richard"
             value={name}
             onChange={({ target }) => setName(target.value)}
-            required
-          />
-          <InputWithLabel
-            id="user-e-mail"
-            label="E-mail"
-            type="email"
-            placeholder="exemple@gosch.io"
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
             required
           />
           <InputWithLabel
