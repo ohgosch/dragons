@@ -84,6 +84,8 @@ export const OptionItem = styled(Link)`
   padding: 7px 10px;
   display: block;
   text-decoration: none;
+  text-align: left;
+  border: none;
 
   &:not(:last-child) {
     border-bottom: 1px solid ${COLORS.greyWhite};

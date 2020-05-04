@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getDragonDetail } from 'logic/requests/dragon';
@@ -19,18 +19,17 @@ import {
 
 export const DragonDetail = () => {
   const [dragon, setDragon] = useState({});
-  const { name, type, histories, createdAt } = dragon;
+  const { name, type, history, createdAt } = dragon;
   const { id } = useParams();
-  const historiesIsArray = typeof histories === 'object';
 
-  const fetch = async () => {
+  const fetch = useCallback(async () => {
     const { data } = await getDragonDetail(id);
     setDragon(data);
-  };
+  }, [id]);
 
   useEffect(() => {
     fetch();
-  }, [id]);
+  }, [fetch]);
 
   return (
     <Container>
@@ -47,12 +46,10 @@ export const DragonDetail = () => {
               <InfoValue>{format(createdAt)}</InfoValue>
             </InfoWrapper>
           )}
-          {!!histories && !!histories.length && (
+          {!!history && !!history.length && (
             <InfoWrapper>
-              <InfoTitle>Histories:</InfoTitle>
-              <InfoValue>
-                {historiesIsArray ? histories[0] : histories}
-              </InfoValue>
+              <InfoTitle>History:</InfoTitle>
+              <InfoValue>{history}</InfoValue>
             </InfoWrapper>
           )}
         </Content>

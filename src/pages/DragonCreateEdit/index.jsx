@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { Wrapper } from 'visual/styles/Wrapper';
 import { InputWithLabel } from 'components/InputWithLabel';
@@ -25,7 +25,7 @@ export const DragonCreateEdit = () => {
 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
-  const [histories, setHistories] = useState('');
+  const [history, setHistory] = useState('');
 
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,31 +36,31 @@ export const DragonCreateEdit = () => {
     setLoading(true);
 
     if (id) {
-      await updateDragon({ id, name, type, histories });
+      await updateDragon({ id, name, type, history });
       setSuccess(true);
     } else {
-      await createDragon({ name, type, histories });
+      await createDragon({ name, type, history });
       setSuccess(true);
     }
   };
 
-  const recovery = async () => {
+  const recovery = useCallback(async () => {
     setLoading(true);
 
     const {
-      data: { name: localName, type: localType, histories: localHistories },
+      data: { name: localName, type: localType, history: localHistory },
     } = await getDragonDetail(id);
 
     setName(localName);
     setType(localType);
-    setHistories(localHistories);
+    setHistory(localHistory);
 
     setLoading(false);
-  };
+  }, [id]);
 
   useEffect(() => {
     if (id) recovery();
-  }, [id]);
+  }, [id, recovery]);
 
   return (
     <Container>
@@ -88,12 +88,12 @@ export const DragonCreateEdit = () => {
             />
           </InputsWrapper>
           <InputWithLabel
-            id="dragon-histories"
-            label="Histories"
-            placeholder="Type the histories"
-            value={histories}
+            id="dragon-history"
+            label="History"
+            placeholder="Type the history"
+            value={history}
             disabled={loading}
-            onChange={({ target }) => setHistories(target.value)}
+            onChange={({ target }) => setHistory(target.value)}
             isTextArea
           />
           <ButtonsWrapper>

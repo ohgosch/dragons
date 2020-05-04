@@ -30,6 +30,11 @@ export const Dragons = () => {
     return setShowingOptions(value);
   };
 
+  const onDelete = (id) => {
+    const filtered = dragons.filter((dragon) => dragon.id !== id);
+    setDragons(filtered);
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -55,6 +60,7 @@ export const Dragons = () => {
                 createdAt={createdAt}
                 showOptions={showingOptions === id}
                 toggleOptions={toggleOptions}
+                onDelete={onDelete}
               />
             ),
           )}

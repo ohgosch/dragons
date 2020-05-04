@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { format } from 'logic/date';
 import { ROUTES } from 'logic/constants';
+import { deleteDragon } from 'logic/requests/dragon';
 import {
   Container,
   Column,
@@ -19,29 +20,41 @@ export const TableRow = ({
   id,
   showOptions,
   toggleOptions,
-}) => (
-  <Container>
-    <Column size="20%" title="Name">
-      <Link to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>{name}</Link>
-    </Column>
-    <Column size="25%" title="Type">
-      {type}
-    </Column>
-    <Column size="15%" title="Created at">
-      {format(createdAt)}
-    </Column>
-    <OptionsButton onClick={() => toggleOptions(id)}>Options</OptionsButton>
-    {showOptions && (
-      <OptionsList>
-        <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>Edit</OptionItem>
-        <OptionItem>Delete</OptionItem>
-        <OptionItem to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>
-          Detail
-        </OptionItem>
-      </OptionsList>
-    )}
-  </Container>
-);
+  onDelete,
+}) => {
+  const fetchDelete = () => {
+    deleteDragon(id);
+    onDelete(id);
+  };
+
+  return (
+    <Container>
+      <Column size="20%" title="Name">
+        <Link to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>{name}</Link>
+      </Column>
+      <Column size="25%" title="Type">
+        {type}
+      </Column>
+      <Column size="15%" title="Created at">
+        {format(createdAt)}
+      </Column>
+      <OptionsButton onClick={() => toggleOptions(id)}>Options</OptionsButton>
+      {showOptions && (
+        <OptionsList>
+          <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
+            Edit
+          </OptionItem>
+          <OptionItem onClick={fetchDelete} as="button" type="text">
+            Delete
+          </OptionItem>
+          <OptionItem to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>
+            Detail
+          </OptionItem>
+        </OptionsList>
+      )}
+    </Container>
+  );
+};
 
 TableRow.propTypes = {
   name: PropTypes.string.isRequired,
@@ -50,6 +63,7 @@ TableRow.propTypes = {
   id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   showOptions: PropTypes.bool,
   toggleOptions: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 TableRow.defaultProps = {
