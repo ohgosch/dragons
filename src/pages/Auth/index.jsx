@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { InputWithLabel } from 'components/InputWithLabel';
 import { ButtonPrimary } from 'visual/styles/ButtonPrimary';
 import { AuthContext } from 'contexts/AuthContext';
+import { TEXTS } from 'logic/texts';
 import { Container, Content, Form, Title } from './styles';
 
 export const Auth = () => {
@@ -20,26 +21,26 @@ export const Auth = () => {
   return (
     <Container>
       <Content>
-        <Title>Login</Title>
+        <Title>{TEXTS.auth.title}</Title>
         <Form onSubmit={submit}>
           <InputWithLabel
             id="user-name"
-            label="Username"
-            placeholder="Ex.: Richard"
+            label={TEXTS.auth.username}
+            placeholder={TEXTS.auth.usernamePlaceholder}
             value={name}
             onChange={({ target }) => setName(target.value)}
             required
           />
           <InputWithLabel
             id="user-password"
-            label="Password"
+            label={TEXTS.auth.password}
             type="password"
-            placeholder="********"
+            placeholder={TEXTS.auth.passwordPlaceholder}
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             required
           />
-          <ButtonPrimary type="submit">Login</ButtonPrimary>
+          <ButtonPrimary type="submit">{TEXTS.auth.submit}</ButtonPrimary>
         </Form>
       </Content>
     </Container>

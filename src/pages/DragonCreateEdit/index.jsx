@@ -10,6 +10,7 @@ import {
   getDragonDetail,
   updateDragon,
 } from 'logic/requests/dragon';
+import { TEXTS } from 'logic/texts';
 import {
   Container,
   Title,
@@ -65,13 +66,15 @@ export const DragonCreateEdit = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Create a Dragon</Title>
+        <Title>
+          {id ? TEXTS.createEdit.titleEdit : TEXTS.createEdit.titleCreate}
+        </Title>
         <Form onSubmit={submit}>
           <InputsWrapper>
             <InputWithLabel
               id="dragon-name"
-              label="Name"
-              placeholder="Ex.: Tiamat"
+              label={TEXTS.createEdit.name}
+              placeholder={TEXTS.createEdit.namePlaceholder}
               value={name}
               disabled={loading}
               onChange={({ target }) => setName(target.value)}
@@ -79,8 +82,8 @@ export const DragonCreateEdit = () => {
             />
             <InputWithLabel
               id="dragon-type"
-              label="Type"
-              placeholder="Ex.: Água"
+              label={TEXTS.createEdit.type}
+              placeholder={TEXTS.createEdit.typePlaceholder}
               value={type}
               disabled={loading}
               onChange={({ target }) => setType(target.value)}
@@ -89,8 +92,8 @@ export const DragonCreateEdit = () => {
           </InputsWrapper>
           <InputWithLabel
             id="dragon-history"
-            label="History"
-            placeholder="Type the history"
+            label={TEXTS.createEdit.history}
+            placeholder={TEXTS.createEdit.historyPlaceholder}
             value={history}
             disabled={loading}
             onChange={({ target }) => setHistory(target.value)}
@@ -98,10 +101,10 @@ export const DragonCreateEdit = () => {
           />
           <ButtonsWrapper>
             <SaveButton type="submit" disabled={loading}>
-              Save
+              {TEXTS.createEdit.save}
             </SaveButton>
             <CancelButton as={Link} to={ROUTES.MAIN}>
-              Cancel
+              {TEXTS.createEdit.cancel}
             </CancelButton>
           </ButtonsWrapper>
         </Form>

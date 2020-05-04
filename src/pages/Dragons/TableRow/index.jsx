@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'logic/date';
 import { ROUTES } from 'logic/constants';
 import { deleteDragon } from 'logic/requests/dragon';
+import { TEXTS } from 'logic/texts';
 import {
   Container,
   Column,
@@ -29,26 +30,28 @@ export const TableRow = ({
 
   return (
     <Container>
-      <Column size="20%" title="Name">
+      <Column size="20%" title={TEXTS.dragons.name}>
         <Link to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>{name}</Link>
       </Column>
-      <Column size="25%" title="Type">
+      <Column size="25%" title={TEXTS.dragons.type}>
         {type}
       </Column>
-      <Column size="15%" title="Created at">
+      <Column size="15%" title={TEXTS.dragons.createdAt}>
         {format(createdAt)}
       </Column>
-      <OptionsButton onClick={() => toggleOptions(id)}>Options</OptionsButton>
+      <OptionsButton onClick={() => toggleOptions(id)}>
+        {TEXTS.dragons.options}
+      </OptionsButton>
       {showOptions && (
         <OptionsList>
           <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
-            Edit
+            {TEXTS.dragons.edit}
           </OptionItem>
           <OptionItem onClick={fetchDelete} as="button" type="text">
-            Delete
+            {TEXTS.dragons.delete}
           </OptionItem>
           <OptionItem to={ROUTES.DRAGON_DETAIL.replace(':id', id)}>
-            Detail
+            {TEXTS.dragons.detail}
           </OptionItem>
         </OptionsList>
       )}

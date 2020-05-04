@@ -7,6 +7,7 @@ import { format } from 'logic/date';
 
 import { ButtonFixed } from 'components/ButtonFixed';
 import { ROUTES } from 'logic/constants';
+import { TEXTS } from 'logic/texts';
 import {
   Container,
   Content,
@@ -35,20 +36,20 @@ export const DragonDetail = () => {
     <Container>
       <Wrapper>
         <ButtonFixed to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
-          Edit Dragon
+          {TEXTS.detail.edit}
         </ButtonFixed>
         <Content>
           <Title>{name}</Title>
-          <Type title="Type">{type}</Type>
+          <Type title={TEXTS.detail.type}>{type}</Type>
           {!!createdAt && (
             <InfoWrapper>
-              <InfoTitle>Created at:</InfoTitle>
+              <InfoTitle>{TEXTS.detail.createdAt}</InfoTitle>
               <InfoValue>{format(createdAt)}</InfoValue>
             </InfoWrapper>
           )}
           {!!history && !!history.length && (
             <InfoWrapper>
-              <InfoTitle>History:</InfoTitle>
+              <InfoTitle>{TEXTS.detail.history}</InfoTitle>
               <InfoValue>{history}</InfoValue>
             </InfoWrapper>
           )}

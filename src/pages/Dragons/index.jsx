@@ -7,6 +7,7 @@ import { sort } from 'logic/sort';
 import { ButtonFixed } from 'components/ButtonFixed';
 import { filterByName } from 'logic/filter';
 import { ROUTES } from 'logic/constants';
+import { TEXTS } from 'logic/texts';
 import { Container, FilterWrapper, Table } from './styles';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
@@ -38,11 +39,13 @@ export const Dragons = () => {
   return (
     <Container>
       <Wrapper>
-        <ButtonFixed to={ROUTES.DRAGON_CREATE}>Create a Dragon</ButtonFixed>
+        <ButtonFixed to={ROUTES.DRAGON_CREATE}>
+          {TEXTS.dragons.create}
+        </ButtonFixed>
         <FilterWrapper>
           <InputWithLabel
-            label="Filter by name"
-            placeholder="Type the dragon name"
+            label={TEXTS.dragons.filter}
+            placeholder={TEXTS.dragons.filterPlaceholder}
             id="dragons-filter"
             value={filter}
             onChange={({ target }) => setFilter(target.value)}
