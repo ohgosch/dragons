@@ -15,7 +15,7 @@ export const TEXTS = {
   },
   createEdit: {
     titleCreate: 'Create a Dragon',
-    titleEdit: 'Edir the Dragon',
+    titleEdit: 'Edit the Dragon',
     name: 'Name',
     namePlaceholder: 'Ex.: Tiamat',
     type: 'Type',
@@ -34,6 +34,13 @@ export const TEXTS = {
   dragons: {
     create: 'Create a Dragon',
     filter: 'Filter by name',
-    filterPlaceholder: 'Type the dragon name'
+    filterPlaceholder: 'Type the dragon name',
+    name: 'Name',
+    type: 'Type',
+    createdAt: 'Created at',
+    options: 'Options',
+    edit: 'Edit',
+    delete: 'Delete',
+    detail: 'Detail',
   }
 };
