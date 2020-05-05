@@ -1,17 +1,18 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-import { format } from 'logic/date';
 import { ROUTES } from 'logic/constants';
+import { format } from 'logic/date';
 import { deleteDragon } from 'logic/requests/dragon';
 import { TEXTS } from 'logic/texts';
+
 import {
-  Container,
   Column,
+  Container,
+  OptionItem,
   OptionsButton,
   OptionsList,
-  OptionItem,
 } from './styles';
 
 export const TableRow = ({
@@ -23,6 +24,9 @@ export const TableRow = ({
   toggleOptions,
   onDelete,
 }) => {
+  const buttonRef = useRef();
+  const optionsRef = useRef();
+
   const fetchDelete = () => {
     deleteDragon(id);
     onDelete(id);
@@ -39,11 +43,14 @@ export const TableRow = ({
       <Column size="15%" title={TEXTS.dragons.createdAt}>
         {format(createdAt)}
       </Column>
-      <OptionsButton onClick={() => toggleOptions(id)}>
+      <OptionsButton
+        ref={buttonRef}
+        onClick={() => toggleOptions(id, { buttonRef, optionsRef })}
+      >
         {TEXTS.dragons.options}
       </OptionsButton>
       {showOptions && (
-        <OptionsList>
+        <OptionsList ref={optionsRef}>
           <OptionItem to={ROUTES.DRAGON_EDIT.replace(':id', id)}>
             {TEXTS.dragons.edit}
           </OptionItem>
