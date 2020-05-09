@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { ButtonFixed } from 'components/ButtonFixed';
 import { InputWithLabel } from 'components/InputWithLabel';
+import { Loader } from 'components/Loader';
 import { ROUTES } from 'logic/constants';
 import { filterByName } from 'logic/filter';
 import { getDragonList } from 'logic/requests/dragon';
@@ -9,7 +10,7 @@ import { sort } from 'logic/sort';
 import { TEXTS } from 'logic/texts';
 import { Wrapper } from 'visual/styles/Wrapper';
 
-import { Container, FilterWrapper, Table } from './styles';
+import { Container, FilterWrapper, Table, LoaderWrapper } from './styles';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 
@@ -18,10 +19,13 @@ export const Dragons = () => {
   const [filter, setFilter] = useState('');
   const [showingOptions, setShowingOptions] = useState();
   const [rowRefs, setRowRefs] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetch = async () => {
+    setLoading(true);
     const { data } = await getDragonList();
     setDragons(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -96,6 +100,11 @@ export const Dragons = () => {
                 onDelete={onDelete}
               />
             ),
+          )}
+          {loading && (
+            <LoaderWrapper>
+              <Loader />
+            </LoaderWrapper>
           )}
         </Table>
       </Wrapper>

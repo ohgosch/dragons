@@ -18,9 +18,17 @@ export const Title = styled.h2`
 `;
 
 export const Form = styled.form`
+  margin-top: 50px;
+  position: relative;
+`;
+
+export const FormContent = styled.div`
   display: grid;
   grid-gap: 30px;
-  margin-top: 50px;
+
+  ${p => p.loading && css`
+    opacity: .5;
+  `}
 `;
 
 export const InputsWrapper = styled.div`
@@ -43,3 +51,9 @@ export const SaveButton = styled(ButtonPrimary)`
 `;
 
 export const CancelButton = styled(ButtonGrey)``;
+
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  width: 100%;
+`;
