@@ -7,7 +7,7 @@ import { pxToRem } from 'logic/pxToRem';
 export const Container = styled.div``;
 
 export const Content = styled(Wrapper)`
-  max-width: 300px !important;
+  max-width: ${pxToRem(300)} !important;
 `;
 
 export const Title = styled.h2`

@@ -6,7 +6,7 @@ import { tabletDesktop, mobile } from 'visual/medias';
 import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.div`
-  
+  padding-bottom: ${pxToRem(50)};
 `;
 
 export const Title = styled.h2`

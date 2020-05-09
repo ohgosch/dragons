@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+import { pxToRem } from 'logic/pxToRem';
+
 export const Container = styled.div`
-  padding-bottom: 50px;
+  padding-bottom: ${pxToRem(100)};
 `;
 
 export const FilterWrapper = styled.div`
-  max-width: 300px;
+  max-width: ${pxToRem(300)};
 `;
 
 export const Table = styled.div`

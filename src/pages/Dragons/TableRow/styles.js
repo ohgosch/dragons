@@ -12,7 +12,7 @@ export const Container = styled(Box)`
   ${tabletDesktop(css`
     display: flex;
     align-items: center;
-    height: 50px;
+    height: ${pxToRem(50)};
     padding: 0 20px;
   `)}
   
@@ -54,8 +54,8 @@ export const Column = styled.span`
 `;
 
 export const OptionsButton = styled.button`
-  height: 40px;
-  width: 40px;
+  height: ${pxToRem(40)};
+  width: ${pxToRem(40)};
   background-color: transparent;
   border: none;
   padding: 0;
@@ -64,19 +64,19 @@ export const OptionsButton = styled.button`
   font-size: 0;
   background-repeat: no-repeat;
   background-position: center;
-  right: 5px;
+  right: ${pxToRem(5)};
   position: absolute;
-  top: 5px;
+  top: ${pxToRem(5)};
 `;
 
 export const OptionsList = styled(Box)`
   padding: 0;
   position: absolute;
-  right: 20px;
-  top: 30px;
+  right: ${pxToRem(20)};
+  top: ${pxToRem(30)};
   display: grid;
   z-index: 10;
-  min-width: 100px;
+  min-width: ${pxToRem(100)};
 `;
 
 export const OptionItem = styled(Link)`
@@ -85,7 +85,7 @@ export const OptionItem = styled(Link)`
   line-height: ${pxToRem(16)};
   background-color: ${COLORS.white};
   color: ${COLORS.black};
-  padding: 7px 10px;
+  padding: ${pxToRem(7)} ${pxToRem(10)};
   display: block;
   text-decoration: none;
   text-align: left;

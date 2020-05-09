@@ -6,7 +6,7 @@ import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.header`
   background-color: ${COLORS.black};
-  height: 70px;
+  height: ${pxToRem(70)};
   box-shadow: 0px 4px 10px ${COLORS.greyDarkAlpha};
   margin-bottom: 50px;
 `;
@@ -15,16 +15,16 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: ${pxToRem(70)};
 `;
 
 export const Logo = styled.img`
-  height: 50px;
+  height: ${pxToRem(50)};
 `;
 
 export const User = styled(Link)`
-  width: 50px;
-  height: 50px;
+  width: ${pxToRem(50)};
+  height: ${pxToRem(50)};
   border-radius: 50%;
   background-color: ${COLORS.grey};
   display: flex;
