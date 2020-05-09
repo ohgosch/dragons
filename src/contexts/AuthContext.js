@@ -16,7 +16,7 @@ export const authInitialState = {
 
 export const AuthContext = createContext({});
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children, value }) => {
   const [authenticated, setAuthenticated] = useState(authInitialState.authenticated);
   const [profile, setProfile] = useState(authInitialState.profile);
 
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{
+    <AuthContext.Provider value={value || {
       setProfile: setProfileCallback, clearProfile, authenticated, profile
     }}>
       {children}

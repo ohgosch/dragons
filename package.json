@@ -19,12 +19,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "CI=true react-scripts test --silent && lint-staged",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.js[x]'"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint --fix"
+      "pre-commit": "npm run test:all"
     }
   },
   "lint-staged": {
@@ -45,6 +46,8 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -54,6 +57,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.1",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1"
   }
 }
