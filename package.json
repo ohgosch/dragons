@@ -19,12 +19,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "CI=true react-scripts test --silent && lint-staged",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.js[x]'"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint --fix"
+      "pre-commit": "npm run test:all"
     }
   },
   "lint-staged": {
