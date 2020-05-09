@@ -21,6 +21,7 @@ import {
   SaveButton,
   CancelButton,
   LoaderWrapper,
+  FormContent,
 } from './styles';
 
 export const DragonCreateEdit = () => {
@@ -72,43 +73,45 @@ export const DragonCreateEdit = () => {
           {id ? TEXTS.createEdit.titleEdit : TEXTS.createEdit.titleCreate}
         </Title>
         <Form onSubmit={submit}>
-          <InputsWrapper>
+          <FormContent loading={loading}>
+            <InputsWrapper>
+              <InputWithLabel
+                id="dragon-name"
+                label={TEXTS.createEdit.name}
+                placeholder={TEXTS.createEdit.namePlaceholder}
+                value={name}
+                disabled={loading}
+                onChange={({ target }) => setName(target.value)}
+                required
+              />
+              <InputWithLabel
+                id="dragon-type"
+                label={TEXTS.createEdit.type}
+                placeholder={TEXTS.createEdit.typePlaceholder}
+                value={type}
+                disabled={loading}
+                onChange={({ target }) => setType(target.value)}
+                required
+              />
+            </InputsWrapper>
             <InputWithLabel
-              id="dragon-name"
-              label={TEXTS.createEdit.name}
-              placeholder={TEXTS.createEdit.namePlaceholder}
-              value={name}
+              id="dragon-history"
+              label={TEXTS.createEdit.history}
+              placeholder={TEXTS.createEdit.historyPlaceholder}
+              value={history}
               disabled={loading}
-              onChange={({ target }) => setName(target.value)}
-              required
+              onChange={({ target }) => setHistory(target.value)}
+              isTextArea
             />
-            <InputWithLabel
-              id="dragon-type"
-              label={TEXTS.createEdit.type}
-              placeholder={TEXTS.createEdit.typePlaceholder}
-              value={type}
-              disabled={loading}
-              onChange={({ target }) => setType(target.value)}
-              required
-            />
-          </InputsWrapper>
-          <InputWithLabel
-            id="dragon-history"
-            label={TEXTS.createEdit.history}
-            placeholder={TEXTS.createEdit.historyPlaceholder}
-            value={history}
-            disabled={loading}
-            onChange={({ target }) => setHistory(target.value)}
-            isTextArea
-          />
-          <ButtonsWrapper>
-            <SaveButton type="submit" disabled={loading}>
-              {TEXTS.createEdit.save}
-            </SaveButton>
-            <CancelButton as={Link} to={ROUTES.MAIN}>
-              {TEXTS.createEdit.cancel}
-            </CancelButton>
-          </ButtonsWrapper>
+            <ButtonsWrapper>
+              <SaveButton type="submit" disabled={loading}>
+                {TEXTS.createEdit.save}
+              </SaveButton>
+              <CancelButton as={Link} to={ROUTES.MAIN}>
+                {TEXTS.createEdit.cancel}
+              </CancelButton>
+            </ButtonsWrapper>
+          </FormContent>
           {loading && (
             <LoaderWrapper>
               <Loader />
