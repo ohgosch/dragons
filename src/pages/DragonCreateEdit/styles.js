@@ -3,7 +3,7 @@ import { COLORS } from 'visual/constants';
 import { ButtonPrimary } from 'visual/styles/ButtonPrimary';
 import { ButtonGrey } from 'visual/styles/ButtonGrey';
 import { tabletDesktop, mobile } from 'visual/medias';
-import { toRem } from 'logic/toRem';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.div`
   
@@ -12,8 +12,8 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-style: normal;
   font-weight: bold;
-  font-size: ${toRem(28)};
-  line-height: ${toRem(38)};
+  font-size: ${pxToRem(28)};
+  line-height: ${pxToRem(38)};
   color: ${COLORS.black};
 `;
 

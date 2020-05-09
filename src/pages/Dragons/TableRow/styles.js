@@ -6,7 +6,7 @@ import { Box } from 'visual/styles/Box';
 
 import optionsImage from 'assets/img/options-icon.svg';
 import { Link } from 'react-router-dom';
-import { toRem } from 'logic/toRem';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled(Box)`
   ${tabletDesktop(css`
@@ -27,8 +27,8 @@ export const Container = styled(Box)`
 export const Column = styled.span`
   font-style: normal;
   font-weight: normal;
-  font-size: ${toRem(14)};
-  line-height: ${toRem(19)};
+  font-size: ${pxToRem(14)};
+  line-height: ${pxToRem(19)};
   overflow: hidden;
 
   &, > a {
@@ -81,8 +81,8 @@ export const OptionsList = styled(Box)`
 
 export const OptionItem = styled(Link)`
   font-weight: normal;
-  font-size: ${toRem(12)};
-  line-height: ${toRem(16)};
+  font-size: ${pxToRem(12)};
+  line-height: ${pxToRem(16)};
   background-color: ${COLORS.white};
   color: ${COLORS.black};
   padding: 7px 10px;

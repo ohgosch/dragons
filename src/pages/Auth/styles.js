@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { Wrapper } from 'visual/styles/Wrapper';
-import { toRem } from 'logic/toRem';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.div``;
 
@@ -13,8 +13,8 @@ export const Content = styled(Wrapper)`
 export const Title = styled.h2`
   font-style: normal;
   font-weight: bold;
-  font-size: ${toRem(28)};
-  line-height: ${toRem(38)};
+  font-size: ${pxToRem(28)};
+  line-height: ${pxToRem(38)};
   color: ${COLORS.black};
   text-align: center;
 `;
