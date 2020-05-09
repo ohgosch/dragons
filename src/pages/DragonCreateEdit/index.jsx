@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link, Redirect, useParams } from 'react-router-dom';
 
 import { Wrapper } from 'visual/styles/Wrapper';
 import { InputWithLabel } from 'components/InputWithLabel';
+import { Loader } from 'components/Loader';
 
-import { Link, Redirect, useParams } from 'react-router-dom';
 import { ROUTES } from 'logic/constants';
+import { TEXTS } from 'logic/texts';
 import {
   createDragon,
   getDragonDetail,
   updateDragon,
 } from 'logic/requests/dragon';
-import { TEXTS } from 'logic/texts';
 import {
   Container,
   Title,
@@ -19,6 +20,7 @@ import {
   ButtonsWrapper,
   SaveButton,
   CancelButton,
+  LoaderWrapper,
 } from './styles';
 
 export const DragonCreateEdit = () => {
@@ -107,6 +109,11 @@ export const DragonCreateEdit = () => {
               {TEXTS.createEdit.cancel}
             </CancelButton>
           </ButtonsWrapper>
+          {loading && (
+            <LoaderWrapper>
+              <Loader />
+            </LoaderWrapper>
+          )}
         </Form>
       </Wrapper>
       {success && <Redirect to={ROUTES.MAIN} />}

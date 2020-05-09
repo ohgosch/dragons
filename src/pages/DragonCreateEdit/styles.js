@@ -21,6 +21,7 @@ export const Form = styled.form`
   display: grid;
   grid-gap: 30px;
   margin-top: 50px;
+  position: relative;
 `;
 
 export const InputsWrapper = styled.div`
@@ -43,3 +44,9 @@ export const SaveButton = styled(ButtonPrimary)`
 `;
 
 export const CancelButton = styled(ButtonGrey)``;
+
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  width: 100%;
+`;
