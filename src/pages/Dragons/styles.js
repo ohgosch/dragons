@@ -11,3 +11,7 @@ export const FilterWrapper = styled.div`
 export const Table = styled.div`
   margin-top: 50px;
 `;
+
+export const LoaderWrapper = styled.div`
+  margin-top: 50px;
+`;
