@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Box } from 'visual/styles/Box';
 import { COLORS } from 'visual/constants';
@@ -8,6 +8,12 @@ export const Container = styled.div``;
 
 export const Content = styled(Box)`
   overflow: hidden;
+  position: relative;
+  ${(p) =>
+    p.loading &&
+    css`
+      min-height: 200px;
+    `}
 `;
 
 export const Title = styled.h2`
@@ -46,4 +52,10 @@ export const InfoValue = styled.p`
   font-size: ${toRem(14)};
   line-height: ${toRem(19)};
   color: ${COLORS.black};
+`;
+
+export const LoaderWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 50%;
 `;
