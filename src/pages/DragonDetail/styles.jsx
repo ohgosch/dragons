@@ -4,7 +4,9 @@ import { Box } from 'visual/styles/Box';
 import { COLORS } from 'visual/constants';
 import { pxToRem } from 'logic/pxToRem';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  padding-bottom: ${pxToRem(100)};
+`;
 
 export const Content = styled(Box)`
   overflow: hidden;
