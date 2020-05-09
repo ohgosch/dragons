@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { AuthProvider } from 'contexts/AuthContext';
 import { Logout } from '.';
 
-describe('[Component] ButtonFixed', () => {
+describe('[Page] Logout', () => {
   it('Should renders without crashing', () => {
     shallow(
       <AuthProvider value={{ clearProfile: () => {} }}>

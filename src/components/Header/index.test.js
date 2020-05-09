@@ -28,6 +28,10 @@ describe('[Component] Header', () => {
       expect(wrapper.find(Title)).toHaveLength(1);
     });
 
+    it('Should have a H1 element', () => {
+      expect(wrapper.find('h1')).toHaveLength(1);
+    });
+
     it('Should contains a Logo', () => {
       expect(wrapper.find(Logo)).toHaveLength(1);
     });
@@ -50,14 +54,6 @@ describe('[Component] Header', () => {
           </Route>
         </MemoryRouter>
       );
-    });
-
-    it('Should contains the Title element', () => {
-      expect(wrapper.find(Title)).toHaveLength(1);
-    });
-
-    it('Should contains a Logo', () => {
-      expect(wrapper.find(Logo)).toHaveLength(1);
     });
 
     it('Should not contains a User', () => {
