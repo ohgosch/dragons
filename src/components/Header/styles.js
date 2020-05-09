@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { Link } from 'react-router-dom';
-import { toRem } from 'logic/toRem';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.header`
   background-color: ${COLORS.black};
@@ -32,7 +32,7 @@ export const User = styled(Link)`
   justify-content: center;
   font-family: 'Staatliches', cursive;
   color: ${COLORS.black};
-  font-size: ${toRem(24)};
+  font-size: ${pxToRem(24)};
   text-decoration: none;
 
 `;
